@@ -10,8 +10,6 @@ on:
       - 'assets/**'
       - '**/.gitignore'
   pull_request:
-    types:
-      - opened
     paths-ignore:
       - '*.md'
       - 'assets/**'
