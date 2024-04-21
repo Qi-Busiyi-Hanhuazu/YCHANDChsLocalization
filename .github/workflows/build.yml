@@ -94,7 +94,7 @@ jobs:
         with:
           name: patch
           path: |
-            out/Switch/
+            out/0100d12014fc2000/
       - name: GitHub Release
         uses: ncipollo/release-action@v1
         with:
