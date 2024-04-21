@@ -56,7 +56,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
           fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
