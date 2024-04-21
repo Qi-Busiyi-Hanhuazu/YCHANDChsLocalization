@@ -4,7 +4,13 @@ on:
   push:
     branches: 
       - master
-      - test
+    paths-ignore:
+      - '*.md'
+      - 'assets/**'
+      - '**/.gitignore'
+  pull_request:
+    branches: 
+      - master
     paths-ignore:
       - '*.md'
       - 'assets/**'
@@ -49,7 +55,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
           fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
@@ -97,6 +102,7 @@ jobs:
             out/0100d12014fc2000/
       - name: GitHub Release
         uses: ncipollo/release-action@v1
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
           allowUpdates: true
           artifacts: out/patch-switch.zip
