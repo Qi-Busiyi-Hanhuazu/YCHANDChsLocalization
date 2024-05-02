@@ -109,5 +109,6 @@ jobs:
           body: |
             本页面下方的链接为自动构建并发布的开发版本补丁。此版本补丁可能存在较多问题，仅供测试使用。
           name: ${{ steps.commit.outputs.commit_message }}
+          prerelease: true
           tag: publish
           token: ${{ secrets.GITHUB_TOKEN }}
